@@ -55,7 +55,7 @@ ROOT_URLCONF = 'myssite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:\\Users\\Al-Habib\\myssite'],
+        'DIRS': [r'C:\Users\Al-Habib\myssite\login\template\login'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
+from .models import Login
 from django.shortcuts import render
-from django.http import HttpResponse
-from django.template.loader import get_template
 # Create your views here.
 
 def index(request):
-    t = get_template('login\\template\login\index.html')
-    html = t.render()
-    return HttpResponse(html)
+    user_list = Login.objects.order_by('id')
+    context = {'user_list' : user_list}
+    return render(request, 'index.html', context)
+
+def dashboard(request):
+    return render(request, 'maps.html')
