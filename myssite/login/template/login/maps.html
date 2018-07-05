@@ -3,7 +3,8 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Maps</title>
+    <title>MAP DASHBOARD</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'semantic/dist/semantic.min.css' %}">
     <script
       src="https://code.jquery.com/jquery-3.1.1.min.js"
@@ -19,27 +20,37 @@
    <link href="{% static 'login/maps.css' %}" type="text/css" rel="stylesheet">
   </head>
   <body>
-    <div class="ui left fixed vertical menu">
+    <div class="ui left fixed vertical menu" id="infomap">
+      <div class="item">
+    <div class="ui icon input">
+      <input type="text" placeholder="Search">
+      <i class="search icon"></i>
+    </div>
+  </div>
     <div class="item">
       <img class="ui mini image" src="{% static 'images/layers.png' %}">
     </div>
-    <a class="item">Nama</a>
-    <a class="item">Alamat</a>
+    <div id="tes"></div>
+    <a class="item" id="nama">Nama</a>
+    <a class="item" id="alamat">Alamat</a>
   </div>
   <div id="mapid"></div>
+   <!-- <script type="text/javascript" src="{% static 'login/app.js'%}"></script> -->
    <script>
-     var mymap = L.map('mapid').setView([-6.894495, 107.629039], 13);
-     var marker = L.marker([-6.894495, 107.629039]).addTo(mymap);
-     marker.bindPopup("<b>Hello</b>");
-     L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
-	    maxZoom: 20,
-	    attribution: '&copy; Openstreetmap | &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-     }).addTo(mymap);
-     var hai = L.marker([-6.894495, 107.69]).addTo(mymap);
-     hai.bindPopup("<b>Hai</b>");
-   </script>
-   <script>
-     
+   var map = L.map('mapid').setView([-6.924495, 107.629039], 12);
+   mapLink =
+     '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+   L.tileLayer(
+     'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+       attribution: '&copy; ' + mapLink + ' Contributors',
+       maxZoom: 20,
+     }).addTo(map);
+     var y = "";
+     // for (i in planes.places) {
+     //   marker = new L.marker([planes.places[i].lat,planes.places[i].lng])
+     //       .bindPopup("<b>"+planes.places[i].name+"</b>"+planes.places[i].address)
+     //       .addTo(map);
+     // }
    </script>
   </body>
 </html>

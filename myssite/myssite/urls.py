@@ -15,10 +15,20 @@ Including another URLconf
 """
 from django.conf.urls import url,include
 from django.contrib import admin
-from login.views import index,dashboard
+from login import views
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+from rest_framework import routers
+from rest_framework.urlpatterns import format_suffix_patterns
+
+router = routers.DefaultRouter()
+router.register('marker', views.markerView)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^hello/', index),
-    url(r'^',dashboard),
+    url(r'^maps/', views.dashboard),
+    url(r'^', include(router.urls)),
+    url(r'^view', views.listView),
+    url(r'^api-auth/', include('rest_framework.urls')),
+    url(r'^api/token/', TokenObtainPairView.as_view()),
+    url(r'^api/token/refresh', TokenRefreshView.as_view()),
 ]

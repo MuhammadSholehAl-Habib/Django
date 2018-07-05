@@ -10,3 +10,12 @@ class Login(models.Model):
 
     def __str__(self):
         return self.name
+
+class marker(models.Model):
+    name = models.CharField(max_length=40)
+    lat = models.CharField(max_length=40)
+    lng = models.CharField(max_length=40)
+    address = models.TextField()
+
+    def __str__(self):
+        return self.name

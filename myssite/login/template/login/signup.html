@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="{% static 'login/signup.css' %}">
+    <!-- Semantic UI -->
+    <link rel="stylesheet" type="text/css" href="{% static 'semantic/dist/semantic.min.css' %}">
+    <script src="{% static 'semantic/dist/semantic.min.js' %}"></script>
+</head>
+<body>
+  <form class="ui form" action="/signup" method="post">
+    <div class="ui large form">
+    <div class="two fields">
+      <div class="field">
+        <label>Username</label>
+        <input type="text" name="username" id="id_username" required>
+      </div>
+    </div>
+    <div class="two fields">
+      <div class="field">
+        <label>Password</label>
+        <input type="text" name="password" id="id_password" required>
+      </div>
+    </div>
+  </div>
+    <button type="submit" class="ui submit button">Log In</button>
+  </div>
+</form>
+</body>
+</html>
