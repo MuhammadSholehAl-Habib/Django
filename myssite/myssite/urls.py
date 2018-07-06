@@ -27,7 +27,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^maps/', views.dashboard),
     url(r'^', include(router.urls)),
-    url(r'^view', views.listView),
+    url(r'^view/', views.listView),
     url(r'^api-auth/', include('rest_framework.urls')),
     url(r'^api/token/', TokenObtainPairView.as_view()),
     url(r'^api/token/refresh', TokenRefreshView.as_view()),

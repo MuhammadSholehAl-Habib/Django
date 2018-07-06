@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "url": "http://127.0.0.1:8000/marker/1/",
+        "name": "Ciheul Technologies",
+        "lat": "-6.894495",
+        "lng": "107.629039",
+        "address": "<br>Jl. Sidomukti No.27, Sukaluyu,<br> Cibeunying Kaler, Kota Bandung,<br> Jawa Barat 40123"
+    },
+    {
+        "id": 2,
+        "url": "http://127.0.0.1:8000/marker/2/",
+        "name": "Gedung Sate",
+        "lat": "-6.902239",
+        "lng": "107.61886",
+        "address": "<br>Jl. Diponegoro No.22, Citarum,<br> Bandung Wetan, Kota Bandung,<br> Jawa Barat 40115"
+    },
+    {
+        "id": 3,
+        "url": "http://127.0.0.1:8000/marker/3/",
+        "name": "Institut Teknologi Bandung",
+        "lat": "-6.890357",
+        "lng": "107.610427",
+        "address": "<br>Jl. Ganesha No.10, Lb. Siliwangi,<br> Coblong, Kota Bandung,<br> Jawa Barat 40132"
+    },
+    {
+        "id": 4,
+        "url": "http://127.0.0.1:8000/marker/4/",
+        "name": "Lapangan Gasibu",
+        "lat": "-6.899950",
+        "lng": "107.618688",
+        "address": "<br>Jalan Diponegoro, Citarum,<br> Bandung Wetan, Kota Bandung,<br> Jawa Barat 40115"
+    },
+    {
+        "id": 5,
+        "url": "http://127.0.0.1:8000/marker/5/",
+        "name": "Lapangan Siliwangi",
+        "lat": "-6.910108",
+        "lng": "107.620099",
+        "address": "<br>Jl. Lombok No.10, Merdeka,<br> Sumur Bandung, Kota Bandung,<br> Jawa Barat 40113"
+    },
+    {
+        "id": 6,
+        "url": "http://127.0.0.1:8000/marker/6/",
+        "name": "Cihampelas Walk Bandung",
+        "lat": "-6.893416",
+        "lng": "107.605305",
+        "address": "<br>Jalan Cihampelas No.160,<br> Cipaganti, Coblong, Kota Bandung,<br> Jawa Barat 40131"
+    },
+    {
+        "id": 7,
+        "url": "http://127.0.0.1:8000/marker/7/",
+        "name": "Alun Alun Kota Bandung",
+        "lat": "-6.921751",
+        "lng": "107.607094",
+        "address": "<br>Jl. Asia Afrika, Balonggede,<br> Regol, Kota Bandung,<br> Jawa Barat 40251"
+    },
+    {
+        "id": 8,
+        "url": "http://127.0.0.1:8000/marker/8/",
+        "name": "Taman Makam Pahlawan Cikutra",
+        "lat": "-6.892268",
+        "lng": "107.635601",
+        "address": "<br>Jl. Cikutra, Neglasari,<br> Cibeunying Kaler, Kota Bandung,<br> Jawa Barat 40191"
+    },
+    {
+        "id": 9,
+        "url": "http://127.0.0.1:8000/marker/9/",
+        "name": "Bandara Husein Sastranegara",
+        "lat": "-6.903560",
+        "lng": "107.580196",
+        "address": "<br>Jl. Pajajaran No.156,<br> Husen Sastranegara, Cicendo, Kota Bandung,<br> Jawa Barat 40174"
+    }
+]
