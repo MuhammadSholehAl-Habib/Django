@@ -1,5 +1,8 @@
 #mapid {
   width: 1200px;
   height: 670px;
-  left: 120px;
+  left: 210px;
+}
+#border {
+  padding: 20px;
 }

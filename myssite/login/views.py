@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.http import HttpResponseRedirect
-from .models import Login, marker
+from .models import Login, marker, siapsat
 from django.db.models import Q
 from rest_framework.views import APIView
 from rest_framework import viewsets, permissions
@@ -19,7 +19,9 @@ def login(request):
     return render(request, 'login.html')
 
 def dashboard(request):
-    return render(request, 'maps.html')
+    marker_list = siapsat.objects.order_by('id')
+    context = {'marker_list' : marker_list }
+    return render(request, 'maps.html', context)
 
 def signup(request):
     if request.method == 'POST':

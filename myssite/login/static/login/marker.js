@@ -63,25 +63,19 @@ L.tileLayer(
 
 var i = "";
 for (i in planes.places) {
-  // (function(planes) {
-    marker = new L.marker([planes.places[i].lat,planes.places[i].lng])
-        .bindPopup("<b>"+planes.places[i].name+"</b>"+planes.places[i].address)
-        .addTo(map);
+  marker = new L.marker([planes.places[i].lat, planes.places[i].lng])
+    .bindPopup("<b>" + planes.places[i].name + "</b>" + planes.places[i].address)
+    .addTo(map);
 
-    var myPopup = L.DomUtil.create('div','info');
-    myPopup.innerHTML = "<div id='info'><p id='title'><b>" +planes.places[i].name+"</b></p>"+planes.places[i].address+ "</div>";
-    marker.bindPopup(myPopup);
-    var n,a = "";
-    n = planes.places[i].name;
-    a = planes.places[i].address;
-    $('#info', myPopup).on('click', function() {
-          $("#userTitle").html(n).html();
-          $("#userAddr").html(a).html();
-          // $("#userDetails").modal({
-          //   inverted: true
-          // });
-          // $("#userDetails").modal("show");
-        });
-  // })
-    (planes.places[i]);
+  var myPopup = L.DomUtil.create('div', 'info');
+  myPopup.innerHTML = "<div id='info'><p id='title'><b>" + planes.places[i].name + "</b></p>" + planes.places[i].address + "</div>";
+  marker.bindPopup(myPopup);
+  var n, a = "";
+  n = planes.places[i].name;
+  a = planes.places[i].address;
+  $('#info', myPopup).on('click', function() {
+    $("#userTitle").html(n).html();
+    $("#userAddr").html(a).html();
+  });
+  (planes.places[i]);
 }

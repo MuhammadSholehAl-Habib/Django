@@ -19,3 +19,13 @@ class marker(models.Model):
 
     def __str__(self):
         return self.name
+
+class siapsat(models.Model):
+    satuan = models.CharField(max_length=100)
+    posisi = models.CharField(max_length=200)
+    latitude = models.CharField(max_length=100)
+    longitude = models.CharField(max_length=100)
+    kotama = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.satuan
