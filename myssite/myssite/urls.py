@@ -22,6 +22,7 @@ from rest_framework.urlpatterns import format_suffix_patterns
 
 router = routers.DefaultRouter()
 router.register('marker', views.markerView)
+router.register('siapsat', views.siapsatView)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
