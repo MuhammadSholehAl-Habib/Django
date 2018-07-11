@@ -22,32 +22,65 @@
       <a class="item"><b>Satuan :</b><a class="item" id="satuan"></a></a>
       <a class="item"><b>Kotama :</b><a class="item" id="kotama"></a></a>
       <a class="item"><b>Posisi :</b><a class="item" id="posisi"></a></a>
+      <a class="item">
+      <select class="ui dropdown" id="filter" onchange="filter(this.id)">
+        <option value="">Pilih Layer</option>
+        <option value="Dislokasi">Dislokasi</option>
+        <option value="Choropleth">Choropleth</option>
+      </select>
+      </a>
     </div>
     <div id="mapid"></div>
 </body>
+<script type="text/javascript" src="{% static 'login/app.js' %}"></script>
+<script src="{% static 'login/kodam.geojson' %}"></script>
 <script type="text/javascript">
-    var map = L.map('mapid').setView([-6.894495, 107.629039], 12);
+    var map = L.map('mapid').setView([-0.894495, 118.729039], 5);
     mapLink =
       '<a href="http://openstreetmap.org">OpenStreetMap</a>';
     L.tileLayer(
-      'https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+      'https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
         attribution: '&copy; ' + mapLink + ' Contributors',
         maxZoom: 20,
-      }).addTo(map); {% for i in marker_list %}
-      {%if i.latitude and i.longitude != "nan" and i.latitude and i.longitude != "-nan" %}
-    marker = new L.marker([{{ i.latitude }}, {{ i.longitude }}])
-    .bindPopup("<b>" + "{{ i.satuan }}" + "</b>" + "{{ i.kotama }}")
-      .addTo(map);
-    var myPopup = L.DomUtil.create('div', 'info');
-    myPopup.innerHTML = "<div id='info'><b>" + "{{ i.satuan }}" + "</b><br><br>" + "{{ i.posisi }}" + "<br><br><b>" + "{{ i.kotama }}" + "</b></div>";
-    marker.bindPopup(myPopup);
-    marker.on('click', function() {
-      $("#satuan").html("{{ i.satuan }}").html();
-      $("#kotama").html("{{ i.kotama }}").html();
-      $("#posisi").html("{{ i.posisi }}").html();
-    });
-    {% endif %}
-    {% endfor %}
+        minZoom: 5,
+      }).addTo(map);
+      for (var a in kodam) {
+          L.geoJSON(kodam,{style:function(features) {
+            if(features.properties.mantap > 90){
+              return {color:"#e31a1c"}
+            }else if (features.properties.mantap >= 80 && features.properties.mantap < 90) {
+              return {color:"#fd8d3c"}
+            }else if (features.properties.mantap >= 60 && features.properties.mantap < 80) {
+              return {color:"#fecc5c"}
+            }else{
+              return {color:"#ffffb2"}
+            }
+        }}).addTo(map);
+      }
+
+    // function filter(f1) {
+    //   var f1 = document.getElementById(f1);
+    //   if (f1.value == "Dislokasi") {
+    //       {% for i in marker_list %}
+    //       {% if i.latitude and i.longitude != "nan" and i.latitude and i.longitude != "-nan" %}
+    //       marker = new L.marker([{{ i.latitude }}, {{ i.longitude }}])
+    //       .bindPopup("<b>" + "{{ i.satuan }}" + "</b>" + "{{ i.kotama }}")
+    //       .addTo(map);
+    //       var myPopup = L.DomUtil.create('div', 'info');
+    //       myPopup.innerHTML = "<div id='info'><b>" + "{{ i.satuan }}" + "</b><br><br>" + "{{ i.posisi }}" + "<br><br><b>" + "{{ i.kotama }}" + "</b></div>";
+    //       marker.bindPopup(myPopup);
+    //       marker.on('click', function() {
+    //         $("#satuan").html("{{ i.satuan }}").html();
+    //         $("#kotama").html("{{ i.kotama }}").html();
+    //         $("#posisi").html("{{ i.posisi }}").html();
+    //        });
+    //       {% endif %}
+    //       {% endfor %}
+    //   }
+    //   if (f1.value == "Choropleth") {
+    //       L.geoJSON(kodam).addTo(map);
+    //   }
+    // }
 </script>
 
 </html>

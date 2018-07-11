@@ -29,3 +29,54 @@ class siapsat(models.Model):
 
     def __str__(self):
         return self.satuan
+
+class organization(models.Model):
+    name = models.CharField(max_length=50)
+    level = models.IntegerField()
+    priority_type = models.CharField(max_length=20)
+    combat_type = models.CharField(max_length=20)
+    is_induk = models.BooleanField()
+    is_rahwan = models.BooleanField()
+    parent_id = models.IntegerField()
+    level_0_id = models.IntegerField()
+    latitude = models.CharField(max_length=20)
+    longitude = models.CharField(max_length=20)
+    img_path = models.CharField(max_length=100)
+    leader = models.CharField(max_length=50)
+    vice_leader = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+
+class ekko(models.Model):
+    personnel_quantity = models.DecimalField(max_digits=5, decimal_places=2)
+    personnel_quality = models.DecimalField(max_digits=5, decimal_places=2)
+    personnel_mantap = models.DecimalField(max_digits=5, decimal_places=2)
+    personnel_status = models.CharField(max_length=20)
+    materiil_quantity = models.DecimalField(max_digits=5, decimal_places=2)
+    materiil_quality = models.DecimalField(max_digits=5, decimal_places=2)
+    materiil_mantap = models.DecimalField(max_digits=5, decimal_places=2)
+    materiil_status = models.CharField(max_length=20)
+    exercise_quantity = models.DecimalField(max_digits=5, decimal_places=2)
+    exercise_quality = models.DecimalField(max_digits=5, decimal_places=2)
+    exercise_mantap = models.DecimalField(max_digits=5, decimal_places=2)
+    exercise_status = models.CharField(max_length=20)
+    pangkalan_quantity = models.DecimalField(max_digits=5, decimal_places=2)
+    pangkalan_quality = models.DecimalField(max_digits=5, decimal_places=2)
+    pangkalan_mantap = models.DecimalField(max_digits=5, decimal_places=2)
+    pangkalan_status = models.CharField(max_length=20)
+    penak_quantity = models.DecimalField(max_digits=5, decimal_places=2)
+    penak_quality = models.DecimalField(max_digits=5, decimal_places=2)
+    penak_mantap = models.DecimalField(max_digits=5, decimal_places=2)
+    penak_status = models.CharField(max_length=20)
+    quantity = models.DecimalField(max_digits=5, decimal_places=2)
+    quality = models.DecimalField(max_digits=5, decimal_places=2)
+    mantap = models.DecimalField(max_digits=5, decimal_places=2)
+    status = models.CharField(max_length=20)
+    induk = models.CharField(max_length=100)
+    periode = models.CharField(max_length=20)
+    year = models.IntegerField()
+    satuan_id = models.IntegerField()
+
+    def __str__(self):
+        return self.satuan_id

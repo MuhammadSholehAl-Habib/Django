@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.http import HttpResponseRedirect
-from .models import Login, marker, siapsat
+from .models import Login, marker, siapsat, organization, ekko
 from django.db.models import Q
 from rest_framework.views import APIView
 from rest_framework import viewsets, permissions
 from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
-from .serializers import markerSerializer, siapsatSerializer
+from .serializers import markerSerializer, siapsatSerializer, organizationSerializer, ekkoSerializer
 # Create your views here.
 
 def index(request):
@@ -20,7 +20,9 @@ def login(request):
 
 def dashboard(request):
     marker_list = siapsat.objects.order_by('id')
-    context = {'marker_list' : marker_list }
+    ekko_list = ekko.objects.order_by('id')
+    organization_list = organization.objects.order_by('id')
+    context = {'marker_list' : marker_list,'ekko_list' : ekko_list, 'organization_list' : organization_list }
     return render(request, 'maps.html', context)
 
 def signup(request):
@@ -42,6 +44,14 @@ class markerView(viewsets.ModelViewSet):
 class siapsatView(viewsets.ModelViewSet):
     queryset = siapsat.objects.all()
     serializer_class = siapsatSerializer
+
+class organizationView(viewsets.ModelViewSet):
+    queryset = organization.objects.all()
+    serializer_class = organizationSerializer
+
+class ekkoView(viewsets.ModelViewSet):
+    queryset = ekko.objects.all()
+    serializer_class = ekkoSerializer
 
 
 def listView(request):
