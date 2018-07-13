@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+import requests
 from django.http import HttpResponseRedirect
 from .models import Login, marker, siapsat, organization, ekko
 from django.db.models import Q
@@ -18,12 +19,15 @@ def index(request):
 def login(request):
     return render(request, 'login.html')
 
+# def dashboard(request):
+#     marker_list = siapsat.objects.order_by('id')
+#     ekko_list = ekko.objects.order_by('id')
+#     organization_list = organization.objects.order_by('id')
+#     context = {'marker_list' : marker_list,'ekko_list' : ekko_list, 'organization_list' : organization_list }
+#     return render(request, 'maps.html', context)
+
 def dashboard(request):
-    marker_list = siapsat.objects.order_by('id')
-    ekko_list = ekko.objects.order_by('id')
-    organization_list = organization.objects.order_by('id')
-    context = {'marker_list' : marker_list,'ekko_list' : ekko_list, 'organization_list' : organization_list }
-    return render(request, 'maps.html', context)
+    return render(request, 'maps.html')
 
 def signup(request):
     if request.method == 'POST':
@@ -35,7 +39,6 @@ def signup(request):
         form = UserCreationForm()
     context = {'form' : form}
     return render(request, 'signup.html' , context)
-
 
 class markerView(viewsets.ModelViewSet):
     queryset = marker.objects.all()
@@ -52,7 +55,6 @@ class organizationView(viewsets.ModelViewSet):
 class ekkoView(viewsets.ModelViewSet):
     queryset = ekko.objects.all()
     serializer_class = ekkoSerializer
-
 
 def listView(request):
     data = marker.objects.all()
