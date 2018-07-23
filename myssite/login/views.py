@@ -27,7 +27,9 @@ def login(request):
 #     return render(request, 'maps.html', context)
 
 def dashboard(request):
-    return render(request, 'maps.html')
+    siapsat_list = siapsat.objects.all();
+    context = {'siapsat_list':siapsat_list};
+    return render(request, 'maps.html', context)
 
 def signup(request):
     if request.method == 'POST':
